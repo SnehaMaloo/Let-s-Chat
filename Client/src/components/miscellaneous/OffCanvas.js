@@ -1,0 +1,81 @@
+import { useState } from "react";
+import { ChatState } from '../../Context/ChatProvider';
+import {toast } from 'react-toastify';
+import axios from "axios";
+import UserListItem from "../UserAvatar/UserListItem";
+
+const OffCanvas = () => {
+  const [search, setSearch] = useState("");
+  const [loading,setLoading]=useState(false);
+  const {user}=ChatState();
+  const [searchResult,setSearchResult]=useState([]);
+  const handleSearch = async () => {
+    if(!search){
+        toast.warn('Please Enter Something in search', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+    }
+    try{
+        setLoading(true);
+        const config={
+            headers:{
+                Authorization:`Bearer ${user.token}`,
+            },
+        };
+        const {data}=await axios.get(`/api/user?search=${search}`,config);
+        setLoading(false);
+        setSearchResult(data);
+    }catch(error){
+        toast.error('Failed to load Search Result', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+    }
+
+  };
+  const accessChat=()=>{
+
+  }
+  return (
+    <>
+      <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="static" tabIndex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasScrollingLabel">Search User</h5>
+          <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"/>
+        </div>
+        <div className="offcanvas-body">
+          <div className="d-flex pb-2">
+            <input className="form-control me-2" type="search" placeholder="Search by name or email" aria-label="Search"  value={search} onChange={(e) => { setSearch(e.target.value) }}/>
+            <button className="btn btn-outline-success" onClick={handleSearch}>Go</button>
+          </div>
+          {loading?
+            <div className="d-flex justify-content-center"><div className="spinner-border text-primary" role="status">
+            <span className="sr-only"></span></div></div>
+            :(searchResult?.map((nuser)=>{
+                return(
+                    <UserListItem key={nuser._id}
+                    user={nuser}
+                    handleFunction={()=> accessChat(nuser._id)}/>)
+            }
+            ))
+        }
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default OffCanvas;
