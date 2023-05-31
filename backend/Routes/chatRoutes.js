@@ -7,7 +7,7 @@ router.post('/',protect,accessChat);
 
 router.get('/',protect,fetchChats);  //to fetch all the chats related to that user
 
-router.get('/group',protect,createGroupChat);
+router.post('/group',protect,createGroupChat);
 
 router.route('/rename').put(protect,renameGroupChat);
 

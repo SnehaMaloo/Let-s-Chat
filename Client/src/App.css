@@ -7,3 +7,44 @@
   background-size: cover;
   background-position: center;
 } 
+
+.user-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  color: #221d1d;
+  margin-bottom:4px;
+  border: 1px solid #c6c6c6;
+  border-radius: 0.25rem;
+  background: #E8E8E8;
+  max-height: 9vh;
+  font-family:'cursive';
+  color:'#611947'
+}
+
+.user-list-item:hover {
+  background: #39a896;
+  color: white;
+}
+
+.buttonclass:hover{
+  background: rgb(87, 85, 85);
+  color: white;
+}
+
+::-webkit-scrollbar {
+width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+background: Orgba(136, 136, 136, 0.281);
+}
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
+.fontfam{
+  font-family: 'Work sans';
+}

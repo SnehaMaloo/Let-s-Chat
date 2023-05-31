@@ -55,7 +55,6 @@ const fetchChats = asyncHandler(async (req, res) => {
     path: "latestMessage.sender",
     select: "name pic email",
     });
-    I
     res.status (200).send(results);
     });
     } catch (error) {
@@ -80,7 +79,7 @@ const createGroupChat=asyncHandler(async(req,res)=>{
         const groupChat= await Chat.create({
             chatName:req.body.name,
             users:users,
-            isGroupChat:true,
+            isGroup:true,
             groupAdmin:req.user
         });
 

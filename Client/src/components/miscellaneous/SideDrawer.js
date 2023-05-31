@@ -17,12 +17,6 @@ const SideDrawer = () => {
     localStorage.removeItem("userInfo");
     history.push("/");
   }
-  useEffect(() => {
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map((tooltipTriggerEl) => {
-      return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-  }, []);
     return (
     <>
         <div className='d-flex justify-content-between bg-white w-100 mb-5 px-5 pt-3 align-content-center'>
@@ -33,7 +27,7 @@ const SideDrawer = () => {
                 </div>
             </button>
             {<OffCanvas/>}
-            <p className='fs-1 fw-bolder' style={{ fontFamily: 'Work Sans, sans-serif' }}>Let's Chat</p>
+            <p className='fs-1 fw-bolder fontfam'>Let's Chat</p>
             <div className='d-flex justify-content-center'>
                 <div className="dropdown-center py-3">
                     <button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,7 +46,7 @@ const SideDrawer = () => {
                       <li><button type="button" className="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">My Profile</button></li>
                       <li><button className="dropdown-item" onClick={logoutHandler}>Logout</button></li>
                   </ul>
-                  {<ProfileModal/>}
+                  {<ProfileModal val={"true"} u={user}/>}
                 </div>
             </div>
         </div>

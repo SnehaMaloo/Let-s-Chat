@@ -1,9 +1,12 @@
 import React from 'react'
+import { ChatState } from '../../Context/ChatProvider';
+import SingleChat from './SingleChat';
 
-const ChatBox = () => {
+const ChatBox = ({fetchAgain,setFetchAgain}) => {
+  const {selectedChat}=ChatState();
   return (
-    <div>
-      Box
+    <div className={`${selectedChat ? "d-flex" : "d-none"} overflow-y-hidden d-md-flex flex-column align-items-center p-3 bg-white border rounded-1 h-100`}>
+      <SingleChat fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>
     </div>
   )
 }

@@ -41,11 +41,9 @@ const SignUp = () => {
                 method:'post',
                 body:data,
             }).then((res)=> res.json()).then(data=>{
-                console.log(data.url.toString());
                 setPic(data.url.toString());
                 setloading(false);
             }).catch((err)=>{
-                console.log(err);
                 setloading(false);
             })
         }

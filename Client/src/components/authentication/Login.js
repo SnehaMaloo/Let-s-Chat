@@ -6,8 +6,8 @@ import axios from 'axios';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const [email,setEmail]=useState();
-    const [password,setPassword]=useState();
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
     const [loading,setloading]=useState(false);
     const history=useHistory();
     
