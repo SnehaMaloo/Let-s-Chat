@@ -17,7 +17,7 @@ const userSchema=mongoose.Schema({
     },
     pic:{
         type:String,
-        default:"https://images.unsplash.com/photo-1600067156933-bff4d0f0c67f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=865&q=80"
+        default:"https://i0.wp.com/vssmn.org/wp-content/uploads/2018/12/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png?w=860&ssl=1"
     }
 
 },{timestamps:true});

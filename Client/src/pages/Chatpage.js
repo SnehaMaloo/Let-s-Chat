@@ -10,12 +10,12 @@ const ChatPage = () => {
   return (
     <div style={{width:'100vw',height:'100vh'}}>
       {user && <SideDrawer/>}
-      <div className="d-flex justify-content-between" style={{height:'80%' ,width: '97%'}}>
+      <div className="d-flex justify-content-between mx-3" style={{height:'80%' ,width: '97%'}}>
           <div className="col-4 h-100">{user&&<MyChats fetchAgain={fetchAgain} />}</div>
-          <div className="col-8 h-100">{user&&<ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>}</div>
+          <div className="col-8 h-100 mr-1">{user&&<ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>}</div>
       </div>
     </div>
   )
 }
 
-export default ChatPage
+export default ChatPage;

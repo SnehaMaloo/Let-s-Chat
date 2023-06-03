@@ -24,7 +24,7 @@ const SideDrawer = () => {
                 </div>
             </button>
             {<OffCanvas/>}
-            <p className='fs-1 fw-bolder fontfam'>Let's Chat</p>
+            <p className='fs-1 fw-bolder fontfam fontcolor'>Let's Chat</p>
             <div className='d-flex justify-content-center'>
                 <div className="dropdown-center py-2">
                     <button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

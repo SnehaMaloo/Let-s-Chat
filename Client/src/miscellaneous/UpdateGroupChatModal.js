@@ -206,7 +206,7 @@ const UpdateGroupChatModal = ({fetchAgain,setFetchAgain,fetchMessages}) => {
 
   return (
     <>
-      <button className="bg-white border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" data-bs-backdrop="static" onClick={()=>setModalnum(2)}>
+      <button className="bg-white border-0 fontfam" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" data-bs-backdrop="static" onClick={()=>setModalnum(2)}>
       <i className='fas fa-eye'></i>
       </button>
 

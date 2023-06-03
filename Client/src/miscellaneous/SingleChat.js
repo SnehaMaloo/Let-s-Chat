@@ -154,7 +154,7 @@ const SingleChat = ({fetchAgain,setFetchAgain}) => {
                 {loading?(<Spinner/>):(<>
                     <div className='messages'><ScrollableChat messages={messages}/></div>
                 </>)}
-                {istyping?<div style={{marginbottom:"0%"}} >Loading...</div>:<></>}
+                {istyping?<div>Loading...</div>:<></>}
                 </div>  
                 <form className='form-control mt-3 d-flex flex-row'>
                      <input className='form-control mx-1' style={{background:"#E0E0E0",width:'90%'}} placeholder='Enter a message...' onChange={typingHandler} value={newMessage}/>

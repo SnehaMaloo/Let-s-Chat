@@ -92,7 +92,7 @@ const Login = () => {
                     <div className='mx-5'><div className="spinner-border text-primary" role="status">
                             <span className="sr-only"></span></div></div>:
                           <button type="submit" className="btn btn-primary btn-sm" style={{ width: '100%' }} onClick={submitHandler} >Login</button>}
-                    <button type="submit" className="btn btn-danger btn-sm mt-1" style={{ width: '100%' }} onClick={()=>{setEmail("guest@gmail.com");
+                    <button type="submit" className="btn btn-danger btn-sm my-2" style={{ width: '100%' }} onClick={()=>{setEmail("guest@gmail.com");
                     setPassword("123456")}} >Get Guest User Credentials</button>
         </div>
     </div>

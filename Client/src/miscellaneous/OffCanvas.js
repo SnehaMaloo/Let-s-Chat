@@ -3,7 +3,7 @@ import {useState } from "react";
 import { ChatState } from '../Context/ChatProvider';
 import {toast } from 'react-toastify';
 import axios from "axios";
-import UserListItem from '../components/UserAvatar/UserBadgeItem';
+import UserListItem from '../components/UserAvatar/UserListItem';
 import Spinner from "./Spinner";
 
 const OffCanvas = () => {

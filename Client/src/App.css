@@ -3,10 +3,14 @@
 .App{
   min-height: 100vh;
   display: flex;
-  background-image: url("../public/background.png");
+  background-image: url("../public/luke-chesser-3rWagdKBF7U-unsplash.jpg");
   background-size: cover;
   background-position: center;
 } 
+
+.fontcolor{
+  color: rgb(44, 44, 136);
+}
 
 .user-list-item {
   display: flex;
@@ -23,6 +27,15 @@
   color:'#611947'
 }
 
+.noscrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.noscrollbar{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 .user-list-item:hover {
   background: #39a896;
   color: white;
@@ -46,7 +59,7 @@ background: #555;
 }
 
 .fontfam{
-  font-family: 'Work sans';
+  font-family: 'Josefin sans';
 }
 
 .messages{

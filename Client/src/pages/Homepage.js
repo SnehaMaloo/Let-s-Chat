@@ -13,15 +13,15 @@ const Homepage = () => {
     <>
     <div className="container-xl d-flex justify-content-center align-items-center flex-column" style={{ minHeight: '100vh' }}>
             <div className='m-5 rounded-1 bg-white text-center' style={{ width: '40%', height: '10%' }}>
-                <h1 className='pt-3 color-dark' style={{fontFamily:"sans-serif"}}> Let's Chat</h1>
+                <h1 className='pt-3 fontfam fontcolor'> Let's Chat</h1>
             </div>
             <div className='p-2 rounded-1 bg-white' style={{ width: '40%'}}>
                 <ul className="nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">
                     <li className="w-50 nav-item" role="presentation">
-                        <button className="nav-link active rounded-5" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Login</button>
+                        <button className="nav-link active rounded-5 fontcolor" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Login</button>
                     </li>
                     <li className="nav-item" role="presentation">
-                        <button className="nav-link rounded-5 " id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">SignUp</button>
+                        <button className="nav-link rounded-5 fontcolor " id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">SignUp</button>
                     </li>
                 </ul>
                 <div className="tab-content" id="pills-tabContent">
