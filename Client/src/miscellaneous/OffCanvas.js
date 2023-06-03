@@ -1,8 +1,9 @@
+import * as bootstrap from 'bootstrap';
 import {useState } from "react";
-import { ChatState } from '../../Context/ChatProvider';
+import { ChatState } from '../Context/ChatProvider';
 import {toast } from 'react-toastify';
 import axios from "axios";
-import UserListItem from "../UserAvatar/UserListItem";
+import UserListItem from '../components/UserAvatar/UserBadgeItem';
 import Spinner from "./Spinner";
 
 const OffCanvas = () => {

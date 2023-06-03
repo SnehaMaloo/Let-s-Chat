@@ -1,18 +1,15 @@
-import React, { useState,useEffect } from 'react'
-import * as bootstrap from 'bootstrap';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import userIcon from './userIcon.png';
-import { ChatState } from '../../Context/ChatProvider';
+import { ChatState } from '../Context/ChatProvider';
 import ProfileModal from './ProfileModal';
 import OffCanvas from './OffCanvas';
+import { getSender } from '../config/ChatLogics';
+import * as bootstrap from 'bootstrap';
+
 
 const SideDrawer = () => {
-  const [loading,setLoading]=useState(false);
-  const [loadingChat,setLoadingChat]=useState();
-  const [showModal, setShowModal] = useState(false);
-  const {user}=ChatState();
+  const {user,notification,setNotifications,setSelectedChat}=ChatState();
   const history=useHistory();
-
   const logoutHandler=()=>{
     localStorage.removeItem("userInfo");
     history.push("/");
@@ -29,24 +26,39 @@ const SideDrawer = () => {
             {<OffCanvas/>}
             <p className='fs-1 fw-bolder fontfam'>Let's Chat</p>
             <div className='d-flex justify-content-center'>
-                <div className="dropdown-center py-3">
+                <div className="dropdown-center py-2">
                     <button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i className="fas fa-bell fa-lg"></i>
+                        <i className={`fas fa-bell fa-lg${notification.length?" iconcolor":""}`}></i>
                     </button>
                     <ul className="dropdown-menu">
-                            <li><Link className="dropdown-item" to="#">My Profile</Link></li>
-                            <li><Link className="dropdown-item" to="#">Logout</Link></li>
+                    <li className='dropdown-item fw-bold'>
+                    {!notification.length && "No New Messages"}
+                    </li>
+              {notification.map((notif) => (
+                <li className='dropdown-item fw-bold'
+                  key={notif._id}
+                  onClick={() => {
+                    setSelectedChat(notif.chat);
+                    setNotifications(notification.filter((n) => n !== notif));
+                  }}
+                >
+                {console.log(notif)}
+                  {notif.chat.isGroup
+                    ?  `New Message in ${notif.chat.chatName}`
+                    : `New Message from ${getSender(user, notif.chat.users)}`}
+                </li>
+              ))}          
                     </ul>
                 </div>
                 <div className="dropdown-center">
                   <button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src={user?user.pic:userIcon} alt="Avatar" className="rounded-circle img-fluid " style={{height:'60px'}}/>
+                    <img src={user?user.pic:userIcon} alt="Avatar" className="rounded-circle img-fluid " style={{height:'40px',width:'40px'}}/>
                   </button>
                   <ul className="dropdown-menu">
                       <li><button type="button" className="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">My Profile</button></li>
                       <li><button className="dropdown-item" onClick={logoutHandler}>Logout</button></li>
                   </ul>
-                  {<ProfileModal val={"true"} u={user}/>}
+                  {<ProfileModal val={true} user={user}/>}
                 </div>
             </div>
         </div>

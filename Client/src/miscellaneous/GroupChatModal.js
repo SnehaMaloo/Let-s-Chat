@@ -1,10 +1,11 @@
+import * as bootstrap from 'bootstrap';
 import React, { useState } from 'react'
 import {toast } from 'react-toastify';
-import { ChatState } from '../../Context/ChatProvider';
+import { ChatState } from '../Context/ChatProvider';
 import axios from "axios";
 import Spinner from './Spinner';
-import UserListItem from '../UserAvatar/UserListItem';
-import UserBadgeItem from '../UserAvatar/UserBadgeItem';
+import UserListItem from '../components/UserAvatar/UserListItem';
+import UserBadgeItem from '../components/UserAvatar/UserBadgeItem';
 
 const GroupChatModal = ({children}) => {
     const [groupChatName,setGroupChatName]=useState();
@@ -103,34 +104,34 @@ const GroupChatModal = ({children}) => {
         </span>
 
       <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div className="modal-dialog">
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h1 className="d-flex justify-content-center fs-35 fontfam" id="staticBackdropLabel">Create Group Chat</h1>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h1 className="d-flex justify-content-center fs-35 fontfam" id="staticBackdropLabel">Create Group Chat</h1>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div className="modal-body d-flex-column align-items-center">
+                    <form>
+                        <div className="mb-3">
+                            <label htmlFor="ChatName" className="form-label">Chat Name</label>
+                            <input className="form-control" placeholder='Chat Name' onChange={(e)=> setGroupChatName(e.target.value)}/>
+                        </div>
+                        <div className="mb-1">
+                            <label htmlFor="SearchUser" className="form-label">Search Users</label>
+                            <input className="form-control" placeholder='Add Users eg:John, Piyush, Jane' onChange={(e)=> handleSearch(e.target.value)}/>
+                        </div>
+                    </form>
+                    {selectedUser.map(u => (
+                            <UserBadgeItem key={u._id} user={u} handleFunction={() => handleDelete(u)} />
+                        ))}
+                    
+                    {loading ? <Spinner/>:(searchResult?.slice(0,4).map((u) =><UserListItem key={u._id} user={u} handleFunction={()=>handleGroup(u)}/>))}
                 </div>
-            <div className="modal-body d-flex-column align-items-center">
-                <form>
-                    <div className="mb-3">
-                        <label htmlFor="ChatName" className="form-label">Chat Name</label>
-                        <input className="form-control" placeholder='Chat Name' onChange={(e)=> setGroupChatName(e.target.value)}/>
-                    </div>
-                    <div className="mb-1">
-                        <label htmlFor="SearchUser" className="form-label">Search Users</label>
-                        <input className="form-control" placeholder='Add Users eg:John, Piyush, Jane' onChange={(e)=> handleSearch(e.target.value)}/>
-                    </div>
-                </form>
-                {selectedUser.map(u => (
-                        <UserBadgeItem key={u._id} user={u} handleFunction={() => handleDelete(u)} />
-                    ))}
-                
-                {loading ? <Spinner/>:(searchResult?.slice(0,4).map((u) =><UserListItem key={u._id} user={u} handleFunction={()=>handleGroup(u)}/>))}
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleSubmit}>Create Chat</button>
+                </div>
+                </div>
             </div>
-            <div className="modal-footer">
-                <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleSubmit}>Create Chat</button>
-            </div>
-            </div>
-        </div>
         </div>
     </>
   )

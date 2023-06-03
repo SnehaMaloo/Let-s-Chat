@@ -1,4 +1,4 @@
-import userIcon from '../miscellaneous/userIcon.png';
+import userIcon from '../../miscellaneous/userIcon.png';
 
 const UserListItem = ({user,handleFunction}) => 
 {

@@ -48,3 +48,14 @@ background: #555;
 .fontfam{
   font-family: 'Work sans';
 }
+
+.messages{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.iconcolor{
+  color:red;
+}

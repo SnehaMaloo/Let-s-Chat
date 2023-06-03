@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import Login from '../components/authentication/Login';
-import SignUp from '../components/authentication/SignUp';
+import Login from '../authentication/Login';
+import SignUp from '../authentication/SignUp';
 import { useHistory } from 'react-router-dom';
 const Homepage = () => {
     const history=useHistory();

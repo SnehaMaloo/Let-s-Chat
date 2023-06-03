@@ -1,8 +1,9 @@
+import * as bootstrap from 'bootstrap';
 import React, { useEffect, useState } from 'react'
-import { ChatState } from '../../Context/ChatProvider'
+import { ChatState } from '../Context/ChatProvider'
 import {toast } from 'react-toastify';
 import axios from "axios";
-import { getSender } from '../../config/ChatLogics';
+import { getSender } from '../config/ChatLogics';
 import GroupChatModal from './GroupChatModal';
 
 const MyChats = ({fetchAgain}) => {
@@ -44,7 +45,7 @@ const MyChats = ({fetchAgain}) => {
   return (
     <>
       <div className={`${selectedChat ? "d-none" : "d-flex"} d-md-flex flex-column align-items-center p-3 bg-white w-md-31 w-sm-100 border rounded-1 h-100 mx-2`}>
-        <div className='pb-3 px-3 text-size-17 text-size-md-10 d-flex w-100 justify-content-between align-items-center' style={{fontFamily:"Work sans"}}>MyChats<GroupChatModal><button className='d-flex fs-17 border rounded-1 buttonclass'><p className='d-sm-none d-lg-flex my-1'>New Group Chat</p><i className="fas fa-plus mx-2 my-2"></i></button></GroupChatModal></div>
+        <div className='pb-3 px-3 d-flex w-100 justify-content-between align-items-center fw-bold text-body-secondary' style={{fontFamily:"Work sans"}}>MyChats<GroupChatModal><button className='d-flex fs-17 border rounded-1 buttonclass'><p className='d-sm-none d-lg-flex my-1'>New Group Chat</p><i className="fas fa-plus mx-2 my-2"></i></button></GroupChatModal></div>
         <div className='d-flex-column p-3 w-100 h-100 rounded-1 overflow-y-hidden' style={{background:"#F8F8F8"}}>
         {chats ? (
           <div className='overflow-y-scroll'>

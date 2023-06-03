@@ -1,5 +1,6 @@
+import * as bootstrap from 'bootstrap';
 import React from 'react'
-import { ChatState } from '../../Context/ChatProvider';
+import { ChatState } from '../Context/ChatProvider';
 import SingleChat from './SingleChat';
 
 const ChatBox = ({fetchAgain,setFetchAgain}) => {
